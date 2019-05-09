@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/perpustakaan','PerpustakaanController@index');
+Route::post('/home/create', 'postsController@store');
+Route::get('/delete/{id}', 'postsController@delete' );
+Route::resource('home', 'postsController');
+Route::get('/edit/{id}','postsController@edit');
+Route::post('/update','postsController@update');

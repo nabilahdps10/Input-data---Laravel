@@ -64,31 +64,23 @@
         </style>
     </head>
     <body>
-
-            <div class="content">
-        <table border="1">
-        <tr>
-            <th>id</th>
-            <th>Judul</th>
-            <th>Penerbit</th>
-            <th>Tahun Terbit</th>
-            <th>Pengarang</th>
-        </tr>
-        @foreach($buku as $p)
-        <tr>
-            <td>{{ $p->judul }}</td>
-            <td>{{ $p->penerbit }}</td>
-            <td>{{ $p->tahun_terbit }}</td>
-            <td>{{ $p->pengarang}}</td>
-            <td>
-                <a href="/edit/{{ $p->id }}">Edit</a>
-                |
-                <a href="/delete/{{ $p->id }}">Hapus</a>
-            </td>
-        </tr>
-        @endforeach
-    </table>
-            </div>
-        </div>
+    @foreach($posts as $p)
+  <form action="/update" method="post">
+    {{ csrf_field() }}
+    <span>Judul Buku</span><br><br>
+    <input type="text" name="judul" required="required" value="{{ $p ->judul }}"> <br/>
+    <br>
+    <span>Penerbit</span><br><br>
+    <input type="text" name="penerbit" required="required" value="{{ $p ->penerbit }}"> <br/>
+    <br>
+    <span>Tahun Terbit</span><br><br>
+    <input type="text" name="tahun_terbit" required="required" value="{{ $p ->tahun_terbit }}"> <br/>
+    <br>
+    <span>Pengarang</span> <br><br>
+    <input type="text" name="pengarang" required="required" value="{{ $p ->pengarang }}"> <br/>
+    <input type="submit" value="Simpan Data" style="margin-top: 30px;width:280px;">
+  </form>
+  @endforeach
+  
     </body>
 </html>

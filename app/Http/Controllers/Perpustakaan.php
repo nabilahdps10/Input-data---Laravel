@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
  
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request; //memanggil library fungsi request
+use Illuminate\Support\Facades\DB; //untuk memanggil  library database
  
 class PerpustakaanController extends Controller
 {

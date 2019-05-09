@@ -64,39 +64,20 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Nabilah D.P.S
-                </div>
-
-                <div class="links">
-                    <!--<a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>-->
-                    <a href="https://blog.laravel.com">Perpustakaan</a>
-                </div>
-
-                
-            </div>
-        </div>
+  <form action="/home/create" method="post">
+    {{ csrf_field() }}
+    <span>Judul Buku</span><br><br>
+    <input type="text" name="judul" required="required"> <br/>
+    <br>
+    <span>Penerbit</span><br><br>
+    <input type="text" name="penerbit" required="required"> <br/>
+    <br>
+    <span>Tahun Terbit</span><br><br>
+    <input type="text" name="tahun_terbit" required="required"> <br/>
+    <br>
+    <span>Pengarang</span> <br><br>
+    <input type="text" name="pengarang" required="required"> <br/>
+    <input type="submit" value="Simpan Data" style="margin-top: 30px;width:280px;">
+  </form>
     </body>
 </html>
